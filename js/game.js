@@ -35,4 +35,29 @@ function gerarNumeros(modo) {
 
 // Escolhe aleatóriamente uma opcao: +, - ou *
 function escolherOperacao() {
-    const operacoes 
+    const operacoes  = [ '+', '-', '*' ]; 
+    return operacoes[Math.floor(Math.random() * operacoes.length)]; 
+}
+// Calcula o resultado com base nos numeros e alteracoes 
+function calcularResposta(n1, n2, op) { 
+    switch (op) { 
+        case '+': return n1 + n2; 
+        case '-': return n1 - n2; 
+        case '*': return n1 * n2; 
+    } 
+}
+
+// Verifica se w resposta do usuario esta correta 
+function verificarResposta() {
+    const respostaUsuario = parseInt(document.getElementById("resposta").value);
+
+    if (respostaUsuario === respostaCorreta) {
+        document.getElementById("resultado"). innerText = "respostaCorreta!"; 
+        pontuacao += 10; 
+    } else { 
+        document.getElementById("resultado").innetText = "errado! A resposta era ${respostaCorreta}";
+        pontuacao -= 5; 
+    }
+
+    document.getElementById("pontuacao").innerText = pontuacao;
+}
